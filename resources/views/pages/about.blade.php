@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>About me</h1>
+<h1>About me: {{ $name }}</h1>
 
 <p>
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr,</br>
