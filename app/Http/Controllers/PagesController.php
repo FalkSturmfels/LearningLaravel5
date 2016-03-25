@@ -10,7 +10,9 @@ class PagesController extends Controller
 {
     public function about()
     {
-        $name = "Achim Fritz";
-        return view('pages/about')->with('name', $name);
+        return view('pages/about')->with([
+            'first' => 'Achim',
+            'last' => 'Fritz'
+        ]);
     }
 }
