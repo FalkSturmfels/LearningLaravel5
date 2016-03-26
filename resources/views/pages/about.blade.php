@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+@extends('app')
 
+@section('content')
 <h1>About me: {{ $first }} {{ $last }}</h1>
 
 <p>
@@ -21,6 +16,4 @@
     Stet clita kasd gubergren, no sea takimata sanctus est Lorem </br>
     ipsum dolor sit amet.
 </p>
-
-</body>
-</html>
+@stop
