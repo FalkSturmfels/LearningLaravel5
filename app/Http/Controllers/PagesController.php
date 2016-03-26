@@ -12,7 +12,12 @@ class PagesController extends Controller
     {
         $first = 'Fox';
         $last = 'Mulder';
-        
+
         return view('pages/about', compact('first', 'last'));
+    }
+
+    public function contact()
+    {
+        return view('pages/contact');
     }
 }

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Contact me!</h1>
-</body>
-</html>
+@extends('app')
+
+@section('content')
+    <h1>Contact me!</h1>
+@stop
+
+@section('footer')
+
+    <script>alert('Contact form script');</script>
+
+@Stop
