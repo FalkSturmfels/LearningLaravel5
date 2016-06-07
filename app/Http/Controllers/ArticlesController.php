@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
@@ -19,10 +17,8 @@ class ArticlesController extends Controller
 
     public function show($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
-        dd($article);
-
-        return $article;
+        return view('articles.show', compact('article'));
     }
 }
