@@ -8,7 +8,7 @@
     
     @foreach($articles as $article)
         <article>
-            <h2>{{$article->title}}</h2>
+            <a href="/laravel/learningLaravel5/public/articles/{{$article->id}}">{{$article->title}}</a>
 
             <div class="body">{{ $article->body}}</div>
         </article>
