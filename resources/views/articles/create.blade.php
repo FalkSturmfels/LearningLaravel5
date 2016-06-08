@@ -6,6 +6,8 @@
 
     </hr>
 
-    <form></form>
+    {!! Form::open() !!}
+
+    {!! Form::close() !!}
 
 @stop
