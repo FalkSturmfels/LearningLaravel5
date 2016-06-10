@@ -6,6 +6,8 @@ use App\Article;
 
 use App\Http\Requests;
 
+use Request;
+
 class ArticlesController extends Controller
 {
     public function index()
@@ -25,5 +27,13 @@ class ArticlesController extends Controller
     public function create()
     {
         return view('articles.create');
+    }
+
+    public function store()
+    {
+        /*$input = Request::all();*/
+        $input = Request::get("title");
+
+        return dd($input);
     }
 }
