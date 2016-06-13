@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * App\Article
@@ -19,6 +20,16 @@ class Article extends Model
         'published_at',
         'excerpt'
     ];
+
+    public function scopePublished(Builder $query)
+    {
+        $query->where('published_at', '<=', Carbon::now());
+    }
+
+    public function scopeUnpublished(Builder $query)
+    {
+        $query->where('published_at', '>', Carbon::now());
+    }
 
     public function setPublishedAtAttribute($date)
     {
