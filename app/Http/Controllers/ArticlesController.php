@@ -26,6 +26,8 @@ class ArticlesController extends Controller
     {
         $article = Article::findOrFail($id);
 
+        dd($article->published_at->addDays(5)->diffForHumans());
+
         return view('articles.show', compact('article'));
     }
 

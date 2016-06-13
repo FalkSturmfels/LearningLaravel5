@@ -21,6 +21,8 @@ class Article extends Model
         'excerpt'
     ];
 
+    protected $dates = ['published_at'];
+
     public function scopePublished(Builder $query)
     {
         $query->where('published_at', '<=', Carbon::now());
