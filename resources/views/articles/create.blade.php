@@ -31,8 +31,8 @@
             {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control'])!!}
         </div>
 
-
-
     {!! Form::close() !!}
+
+    {{var_dump($errors)}}
 
 @stop
