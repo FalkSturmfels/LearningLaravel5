@@ -34,6 +34,10 @@ class ArticlesController extends Controller
 
     public function store(CreateArticleRequest $request)
     {
+        // we can also use the validation method for validation
+        // Than $request must be an Illuminate\Http\Request
+        /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
+
         Article::create($request->all());
 
         return redirect('articles');
