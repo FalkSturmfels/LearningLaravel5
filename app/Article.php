@@ -18,6 +18,7 @@ class Article extends Model
         'title',
         'body',
         'published_at',
+        'user_id',  // Temporary!
         'excerpt'
     ];
 
