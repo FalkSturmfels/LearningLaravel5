@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Http\Requests\CreateArticleRequest;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
@@ -22,8 +23,6 @@ class ArticlesController extends Controller
     {
         $article = Article::findOrFail($id);
 
-        dd($article->published_at->addDays(5)->diffForHumans());
-
         return view('articles.show', compact('article'));
     }
 
@@ -39,6 +38,21 @@ class ArticlesController extends Controller
         /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
 
         Article::create($request->all());
+
+        return redirect('articles');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $article = Article::findOrFail($id);
+
+        $article->update($request->all());
 
         return redirect('articles');
     }
