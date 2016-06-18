@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests\CreateArticleRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -31,7 +30,7 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
-    public function store(CreateArticleRequest $request)
+    public function store(ArticleRequest $request)
     {
         // we can also use the validation method for validation
         // Than $request must be an Illuminate\Http\Request
@@ -48,7 +47,7 @@ class ArticlesController extends Controller
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, ArticleRequest $request)
     {
         $article = Article::findOrFail($id);
 
