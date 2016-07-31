@@ -7,6 +7,11 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['only' => 'create']);
+    }
+
     public function index()
     {
         // possible, but bad way to get only articles which published_at is older or equal as now.
@@ -27,11 +32,6 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        if (\Auth::guest())
-        {
-            return redirect("articles");
-        }
-
         return view('articles.create');
     }
 
