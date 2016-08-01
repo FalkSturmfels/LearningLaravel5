@@ -20,20 +20,23 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function boot(Router $router)
     {
         parent::boot($router);
 
-        $router->model('articles', 'App\Article');
+        $router->bind('articles', function ($id)
+        {
+           return \App\Article::published()->findOrFail($id);
+        });
     }
 
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function map(Router $router)
@@ -48,14 +51,15 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     protected function mapWebRoutes(Router $router)
     {
         $router->group([
             'namespace' => $this->namespace, 'middleware' => 'web',
-        ], function ($router) {
+        ], function ($router)
+        {
             require app_path('Http/routes.php');
         });
     }
