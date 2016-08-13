@@ -7,7 +7,7 @@
     <title>Home</title>
 
     <!-- Referencing Bootstrap CSS that is hosted locally -->
-    {{ Html::style('css/bootstrap.min.css') }}
+    {{ Html::style('bootstrap/css/bootstrap.min.css') }}
 </head>
 <body>
 <div class="container">
