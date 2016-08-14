@@ -9,7 +9,7 @@ class ArticlesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth',['only' => 'create']);
+        $this->middleware('auth', ['only' => 'create']);
     }
 
     public function index()
@@ -38,13 +38,12 @@ class ArticlesController extends Controller
         // we can also use the validation method for validation
         // Than $request must be an Illuminate\Http\Request
         /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
-
         \Auth::user()->articles()->create($request->all());
 
-        session()->flash('flash_message', "Your article has been created!");
-        session()->flash('flash_message_important', true);
-
-        return redirect('articles');
+        return redirect('articles')->with([
+            'flash_message' => "Your article has been created!",
+            'flash_message_important' => true
+        ]);
     }
 
     public function edit(Article $article)
