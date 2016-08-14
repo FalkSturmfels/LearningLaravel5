@@ -11,6 +11,14 @@
 </head>
 <body>
 <div class="container">
+
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success fade in">
+            <button class="close" data-dismiss="alert" aria-label="close" aria-hidden="true">&times;</button>
+            {{Session::get("flash_message")}}
+        </div>
+    @endif
+
     @yield('content')
 </div>
 
@@ -21,6 +29,6 @@
         crossorigin="anonymous"></script>
 
 <!-- Referencing Bootstrap JS that is hosted locally -->
-{{ Html::script('js/bootstrap.min.js') }}
+{{ Html::script('bootstrap/js/bootstrap.min.js') }}
 </body>
 </html>
