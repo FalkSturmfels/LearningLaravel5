@@ -39,8 +39,9 @@ class ArticlesController extends Controller
         // Than $request must be an Illuminate\Http\Request
         /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
 
-        $article = new Article($request->all());
-        \Auth::user()->articles()->save($article);
+        \Auth::user()->articles()->create($request->all());
+
+        
 
         return redirect('articles');
     }
