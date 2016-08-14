@@ -23,11 +23,11 @@
         integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
         crossorigin="anonymous"></script>
 
-<script>
-    $('div.alert').not('.alert-important').delay(3000).fadeOut(300)
-</script>
-
 <!-- Referencing Bootstrap JS that is hosted locally -->
 {{ Html::script('bootstrap/js/bootstrap.min.js') }}
+
+<script>
+    $("#flash-overlay-modal").modal();
+</script>
 </body>
 </html>

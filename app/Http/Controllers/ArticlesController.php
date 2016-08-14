@@ -41,7 +41,7 @@ class ArticlesController extends Controller
         /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
         \Auth::user()->articles()->create($request->all());
 
-        flash('Your article has been created', 'success')->important();
+        flash()->overlay('Your article has been successfully created', 'Good job!');
 
         return redirect('articles');
     }
