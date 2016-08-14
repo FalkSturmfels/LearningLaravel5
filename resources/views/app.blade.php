@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 
-    @include('partials.flash')
+    @include('flash::message')
 
     @yield('content')
 </div>
@@ -24,7 +24,7 @@
         crossorigin="anonymous"></script>
 
 <script>
-    $('div.alert').not('alert-important').delay(3000).fadeOut(300)
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(300)
 </script>
 
 <!-- Referencing Bootstrap JS that is hosted locally -->

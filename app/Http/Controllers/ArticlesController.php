@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Http\Requests\ArticleRequest;
+use Laracasts\Flash\Flash;
 
 class ArticlesController extends Controller
 {
@@ -40,10 +41,9 @@ class ArticlesController extends Controller
         /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
         \Auth::user()->articles()->create($request->all());
 
-        return redirect('articles')->with([
-            'flash_message' => "Your article has been created!",
-            'flash_message_important' => true
-        ]);
+        flash('Your article has been created', 'success')->important();
+
+        return redirect('articles');
     }
 
     public function edit(Article $article)
