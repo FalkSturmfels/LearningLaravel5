@@ -59,4 +59,13 @@ class Article extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * An article is owned to an user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
 }
