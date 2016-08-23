@@ -32,6 +32,7 @@ class ArticlesController extends Controller
     public function create()
     {
         $tags = \App\Tag::lists('name', 'id');
+
         return view('articles.create', compact('tags'));
     }
 
@@ -48,12 +49,13 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $tags = \App\Tag::lists('name', 'id');
+
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     public function update(Article $article, ArticleRequest $request)
     {
-
         $article->update($request->all());
 
         return redirect('articles');
