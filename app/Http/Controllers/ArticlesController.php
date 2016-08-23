@@ -31,7 +31,8 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        return view('articles.create');
+        $tags = \App\Tag::lists('name');
+        return view('articles.create', compact('tags'));
     }
 
     public function store(ArticleRequest $request)
