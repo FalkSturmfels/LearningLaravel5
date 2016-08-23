@@ -31,16 +31,15 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        $tags = \App\Tag::lists('name');
+        $tags = \App\Tag::lists('name', 'id');
         return view('articles.create', compact('tags'));
     }
 
     public function store(ArticleRequest $request)
     {
-        // we can also use the validation method for validation
-        // Than $request must be an Illuminate\Http\Request
-        /*$this->validate($request, ['title' => 'required', 'body' =>'required']);*/
-        \Auth::user()->articles()->create($request->all());
+        $article = \Auth::user()->articles()->create($request->all());
+
+        $article->tags()->attach($request->input('tags'));
 
         flash()->overlay('Your article has been successfully created', 'Good job!');
 

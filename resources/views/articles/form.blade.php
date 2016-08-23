@@ -19,7 +19,7 @@
 <!-- Tags From Input -->
 <div class="form-group">
     {!! Form::label('tags', 'Tags:') !!}
-    {!! Form::select('tags', $tags, null, ['class' => 'form-control', 'multiple']) !!}
+    {!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple']) !!}
 </div>
 
 
