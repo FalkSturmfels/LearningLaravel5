@@ -75,6 +75,6 @@ class Article extends Model
      */
     public function getTagListAttribute()
     {
-        return $this->tags->lists('id')->toArray();
+        return $this->tags->lists('id')->all();
     }
 }

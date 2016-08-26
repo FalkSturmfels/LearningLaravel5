@@ -40,7 +40,7 @@ class ArticlesController extends Controller
     {
         $article = \Auth::user()->articles()->create($request->all());
 
-        $article->tags()->attach($request->input('tags'));
+        $article->tags()->attach($request->input('tag_list'));
 
         flash()->overlay('Your article has been successfully created', 'Good job!');
 
