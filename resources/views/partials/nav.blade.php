@@ -14,9 +14,9 @@
                 <li><a href={{ url('/articles')}}>Article</a></li>
             </ul>
 
-            {{--<ul class="nav navbar-nav navbar-right">
-                <li><a href={{ url('/articles')}}>Article</a></li>
-            </ul>--}}
+            <ul class="nav navbar-nav navbar-right">
+                <li>{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id]) !!}</li>
+            </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>

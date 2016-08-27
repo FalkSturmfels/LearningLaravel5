@@ -12,7 +12,7 @@
 </head>
 <body>
 
-@include('partials.mainmenu')
+@include('partials.nav')
 
 <div class="container">
 
