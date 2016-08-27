@@ -11,6 +11,9 @@
 
 </head>
 <body>
+
+@include('partials.mainmenu')
+
 <div class="container">
 
     @include('flash::message')
