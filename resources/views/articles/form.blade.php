@@ -19,11 +19,19 @@
 <!-- Tags From Input -->
 <div class="form-group">
     {!! Form::label('tag_list', 'Tags:') !!}
-    {!! Form::select('tag_list[]', $tags, null, ['class' => 'form-control', 'multiple']) !!}
+    {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
 </div>
-
 
 <!-- Add Article Form Input -->
 <div class="form-group">
     {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control'])!!}
 </div>
+
+@section('footer')
+    <script>
+        $('#tag_list').select2({
+            placeholder: 'Choose a tag',
+            tags: true
+        });
+    </script>
+@endsection
