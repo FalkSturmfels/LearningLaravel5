@@ -51,6 +51,11 @@ class Article extends Model
     }
 
 
+    public function getPublishedAtAttribute($date)
+    {
+        return (new Carbon($date))->format('Y-m-d');
+    }
+
     /**
      * An article is owned to an user
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
