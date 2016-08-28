@@ -16,6 +16,8 @@ Route::get('contact', 'PagesController@contact');
 
 Route::resource('articles', 'ArticlesController');
 
+Route::get('tags/{tags}', 'TagsController@show');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
